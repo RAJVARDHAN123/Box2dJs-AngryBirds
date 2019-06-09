@@ -9,7 +9,7 @@
 Clone this app using the command:
   * `git clone https://github.com/vishalgaddam873/Box2dJs-AngryBirds.git`
 
-##Instruction of useage
+## Instruction of useage
 
 ## How to run the Project?
 
