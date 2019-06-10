@@ -9,9 +9,9 @@ class Bird {
     fd.shape = new box2d.b2PolygonShape();
     fd.shape.SetAsBox(scaleToWorld(this.w / 2), scaleToWorld(this.h / 2));
     // Some physics
-    fd.density = 1.0;
+    fd.density = 3;
     fd.friction = 0.5;
-    fd.restitution  = 0.2;
+    fd.restitution  = 0.5;
 
     // Define Body
     var bd = new  box2d.b2BodyDef();
@@ -34,10 +34,27 @@ class Bird {
     return inside;
   };
 
+  killBody() {
+  world.DestroyBody(this.body);
+}
+
+// Is the particle ready for deletion?
+done() {
+  // Let's find the screen position of the particle
+  let pos = scaleToPixels(this.body.GetPosition());
+  // Is it off the bottom of the screen?
+  if (pos.y > height + this.w * this.h) {
+    this.killBody();
+    return true;
+  }
+  return false;
+}
+
   show() {
     var pos = scaleToPixels(this.body.GetPosition());
     var angle = this.body.GetAngleRadians();
 
+    rectMode(CENTER);
     push();
     translate(pos.x, pos.y);
     rotate(angle);

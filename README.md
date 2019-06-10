@@ -19,3 +19,9 @@ Command for run the server:
   * `http-server -c-1`
 
 It's shows the output on `http://127.0.0.1:8080/` this port, open this link in browser
+
+
+# How to Play this game ?
+Click on the catapult and set your angle and realeased the mouse click
+
+![Game_Gif](assets/game.gif)

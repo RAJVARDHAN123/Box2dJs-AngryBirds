@@ -10,9 +10,9 @@ class Obstacles {
     fd.shape = new box2d.b2PolygonShape();
     fd.shape.SetAsBox(scaleToWorld(this.w/2),  scaleToWorld(this.h / 2));
 
-    fd.density = 1.0;
+    fd.density = 0.1;
     fd.friction = 0.5;
-    fd.restitution = 0.1;
+    fd.restitution = 0.3;
 
     var  bd = new box2d.b2BodyDef();
     bd.type = box2d.b2BodyType.b2_dynamicBody;
@@ -31,8 +31,8 @@ class Obstacles {
     translate(pos.x, pos.y);
     rotate(angle);
     fill(this.color);
-    rectMode(CENTER);
-    rect(0, 0, this.w, this.h);
+    rectMode(CENTER)
+    rect(0, 0 , this.w, this.h)
     pop();
   }
 };

@@ -1,10 +1,12 @@
-class Ground {
-  constructor(x, y, w, h) {
-    this.x = x;  // X-Cordinate
-    this.y = y;  // Y-Cordinate
-    this.w = w;  // Wdith
-    this.h = h; // Height
-    // this.groundImage = groundImage; // Ground Image
+class Catapult {
+  constructor(x, y, w, h,sling1,sling2, birdImage) {
+    this.x = x;     // Number: x-coordinate of the rectangle.
+    this.y = y;     // Number: y-coordinate of the rectangle.
+    this.w = w;     // Number: width of the rectangle.
+    this.h = h;     // Number: height of the rectangle.
+    this.sling1 = sling1; // sling1 Image
+    this.sling2 = sling2; // sling2 Image
+    this.birdImage = birdImage; // Bird image
 
     // Add Fixtures
     var fd = new box2d.b2FixtureDef();
@@ -24,8 +26,8 @@ class Ground {
     this.body = world.CreateBody(bd);
     // Attach the fixture
     this.body.CreateFixture(fd);
-  };
 
+  };
   show(){
     var pos = scaleToPixels(this.body.GetPosition());
     var angle = this.body.GetAngleRadians();
@@ -33,6 +35,9 @@ class Ground {
     push();
     translate(pos.x, pos.y);
     rotate(angle);
+    image(this.sling1,0 ,0 , this.w, this.h);
+    image(this.birdImage,0 - 15, 0, 50, 45);
+    image(this.sling2, 0 - 25 , 0 - 10, this.w, this.h - 40);
     pop();
   };
 };
